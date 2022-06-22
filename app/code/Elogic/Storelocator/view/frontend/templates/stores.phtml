@@ -1,0 +1,13 @@
+<?php $store = $block->getStore(); ?>
+
+<div class="store" data-lng="<?= $store->getLongitude(); ?>" data-lat="<?= $store->getLatitude(); ?>">
+    <strong><h1><?= $store->getStoreName(); ?></h1></strong>
+    <img src="<?= $block->getBaseUrl() . 'pub/media/' . $store->getImages(); ?>" alt="" width="800" height="600">
+    <div class="store_description"><?= __('Description: ') . $store->getDescription(); ?></div>
+    <div class="address"><?= __('Address: ') . $store->getAddress(); ?></div>
+    <div class="work_schedule"><?= __('Work schedule: ') . $store->getWorkSchedule(); ?></div>
+    <div class="longitude"><?= __('Longitude: ') . $store->getLongitude(); ?></div>
+    <div class="latitude"><?= __('Latitude: ') . $store->getLatitude(); ?></div>
+    <div class="url_key"><?= __('URL_Key: ') . $store->getUrlKey(); ?></div>
+    <a href="http://magento.local/storelist/index/index">Main Page</a>
+</div>

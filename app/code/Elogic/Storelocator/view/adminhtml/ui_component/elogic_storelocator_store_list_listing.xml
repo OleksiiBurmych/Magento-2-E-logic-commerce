@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">elogic_storelocator_store_list_listing.elogic_storelocator_store_list_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+        <button name="add">
+            <url path="*/*/new"/>
+            <class>primary</class>
+            <label translate="true">Add New Store</label>
+        </button>
+        </buttons>
+         <spinner>elogic_storelocator_store_list_columns</spinner>
+         <deps>
+             <dep>elogic_storelocator_store_list_listing.elogic_storelocator_store_list_listing_data_source</dep>
+         </deps>
+     </settings>
+     <dataSource name="elogic_storelocator_store_list_listing_data_source" component="Magento_Ui/js/grid/provider">
+         <settings>
+             <storageConfig>
+                 <param name="indexField" xsi:type="string">id</param>
+             </storageConfig>
+             <updateUrl path="mui/index/render"/>
+         </settings>
+         <aclResource>Elogic_Storelocator::edit</aclResource>
+         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="elogic_storelocator_store_list_listing_data_source">
+             <settings>
+                 <requestFieldName>id</requestFieldName>
+                 <primaryFieldName>id</primaryFieldName>
+             </settings>
+         </dataProvider>
+     </dataSource>
+     <listingToolbar name="listing_top">
+         <settings>
+             <sticky>true</sticky>
+         </settings>
+         <bookmark name="bookmarks"/>
+         <columnsControls name="columns_controls"/>
+         <filterSearch name="fulltext"/>
+         <filters name="listing_filters">
+         <argument name="data" xsi:type="array">
+             <item name="observers" xsi:type="array">
+                 <item name="column" xsi:type="string">column</item>
+             </item>
+         </argument>
+         <settings>
+             <templates>
+                 <filters>
+                     <select>
+                         <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                         <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                     </select>
+                 </filters>
+             </templates>
+         </settings>
+         </filters>
+         <massaction name="listing_massaction">
+             <action name="delete">
+                 <settings>
+                     <confirm>
+                         <message translate="true">Are you sure you want to delete selected items?</message>
+                         <title translate="true">Delete items</title>
+                     </confirm>
+                     <url path="elogic_storelocator/storelist/massDelete"/>
+                     <type>delete</type>
+                     <label translate="true">Delete</label>
+                 </settings>
+             </action>
+         </massaction>
+         <paging name="listing_paging"/>
+     </listingToolbar>
+     <columns name="elogic_storelocator_store_list_columns">
+
+         <selectionsColumn name="ids">
+             <settings>
+                 <indexField>id</indexField>
+             </settings>
+         </selectionsColumn>
+
+         <column name="id">
+             <settings>
+                 <filter>textRange</filter>
+                 <label translate="true">ID</label>
+                 <sorting>asc</sorting>
+             </settings>
+         </column>
+         <column name="store_name">
+              <settings>
+                  <filter>text</filter>
+                  <label translate="true">Store Name</label>
+              </settings>
+          </column>
+          <column name="description">
+              <settings>
+                  <filter>text</filter>
+                  <label translate="true">Description</label>
+              </settings>
+          </column>
+         <column name="images" class="Elogic\Storelocator\Ui\Component\Listing\Column\DisplayImage">
+             <argument name="data" xsi:type="array">
+                 <item name="config" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                     <item name="sortable" xsi:type="boolean">false</item>
+                     <item name="altField" xsi:type="string">name</item>
+                     <item name="has_preview" xsi:type="string">1</item>
+                     <item name="label" xsi:type="string" translate="true">Images</item>
+                 </item>
+             </argument>
+         </column>
+
+          <column name="address">
+              <settings>
+                  <filter>text</filter>
+                  <label translate="true">Address</label>
+              </settings>
+          </column>
+
+          <column name="work_schedule">
+              <settings>
+                  <filter>text</filter>
+                  <label translate="true">Work Schedule</label>
+              </settings>
+          </column>
+          <column name="longitude">
+              <settings>
+                  <filter>textRange</filter>
+                  <label translate="true">Longitude</label>
+              </settings>
+          </column>
+          <column name="latitude">
+              <settings>
+                  <filter>textRange</filter>
+                  <label translate="true">Latitude</label>
+              </settings>
+          </column>
+         <column name="url_key">
+             <settings>
+                 <filter>textRange</filter>
+                 <label translate="true">UrlKey</label>
+             </settings>
+         </column>
+         <actionsColumn name="actions" class="Elogic\Storelocator\Ui\Component\Listing\Column\StoreListAction">
+         <settings>
+             <indexField>id</indexField>
+         </settings>
+         </actionsColumn>
+    </columns>
+</listing>

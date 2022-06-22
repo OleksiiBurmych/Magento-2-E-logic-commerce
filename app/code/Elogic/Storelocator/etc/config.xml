@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <storelocator_settings>
+            <general>
+                <enabled>enable</enabled>
+                <api_key>AIzaSyBAqrHDYnspgGOzxlVE-dpF95O2jCsZ4es</api_key>
+            </general>
+        </storelocator_settings>
+    </default>
+</config>

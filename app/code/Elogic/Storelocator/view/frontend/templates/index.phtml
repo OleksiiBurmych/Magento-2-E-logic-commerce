@@ -1,0 +1,16 @@
+<?php
+$storeCollection = $block->getStores();
+foreach ($storeCollection as $store) { ?>
+    <div class="store" data-lng="<?= $store->getLongitude(); ?>" data-lat="<?= $store->getLatitude(); ?>">
+       <h2><b><?= $store->getStoreName(); ?></b></h2>
+        <img src="/pub/media/<?= $store->getImages(); ?>" alt="Not Found" width="700" height="450">
+        <div class="store_name"><?= $store->getStoreName(); ?></div>
+        <div class="address"><?= __('Address: ') . $store->getAddress(); ?></div>
+        <a href="<?= $block->getStoreUrl($store->getUrlKey()) ?>">Read More</a>
+    </div>
+    <?php
+}
+
+if ($block->getPagerHtml()) { ?>
+    <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml(); ?></div>
+<?php } ?>

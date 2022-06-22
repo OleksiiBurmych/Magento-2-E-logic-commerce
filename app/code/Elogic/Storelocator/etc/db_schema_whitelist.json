@@ -1,0 +1,19 @@
+{
+    "store_list": {
+        "column": {
+            "id": true,
+            "store_name": true,
+            "description": true,
+            "images": true,
+            "address": true,
+            "work_schedule": true,
+            "longitude": true,
+            "latitude": true,
+            "url_key": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "STORE_LIST_URL_KEY": true
+        }
+    }
+}

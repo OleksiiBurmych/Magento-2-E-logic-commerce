@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Elogic_Storelocator::store_list" sortOrder="10" title="store_list">
+                    <resource id="Elogic_Storelocator::store_list_save" sortOrder="10" title="Save store_list"/>
+                    <resource id="Elogic_Storelocator::store_list_delete" sortOrder="20" title="Delete store_list"/>
+                    <resource id="Elogic_Storelocator::store_list_update" sortOrder="30" title="Update store_list"/>
+                    <resource id="Elogic_Storelocator::store_list_view" sortOrder="40" title="View store_list"/>
+                </resource>
+            </resource>
+            <resource id="Magento_Cms::config_storelocator" sortOrder="10" title="store_list"/>
+        </resources>
+    </acl>
+</config>

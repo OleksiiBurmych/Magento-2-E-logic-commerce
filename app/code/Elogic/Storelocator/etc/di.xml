@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Elogic\Storelocator\Api\Data\StoreListInterface"
+                type="Elogic\Storelocator\Model\StoreList"/>
+
+    <preference for="Elogic\Storelocator\Api\StoreListRepositoryInterface"
+                type="Elogic\Storelocator\Model\StoreListRepository"/>
+
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+    <arguments>
+        <argument name="collections" xsi:type="array">
+            <item name="elogic_storelocator_store_list_listing_data_source" xsi:type="string">Elogic\Storelocator\Model\ResourceModel\StoreList\Grid\Collection</item>
+        </argument>
+    </arguments>
+</type>
+    <type name="Elogic\Storelocator\Model\ResourceModel\StoreList\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">store_list</argument>
+            <argument name="resourceModel" xsi:type="string">Elogic\Storelocator\Model\ResourceModel\StoreList</argument>
+            <argument name="eventPrefix" xsi:type="string">store_list</argument>
+            <argument name="eventObject" xsi:type="string">store_storelocator_collection</argument>
+        </arguments>
+    </type>
+   <type name="Elogic\Storelocator\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string"></argument>
+            <argument name="basePath" xsi:type="string"></argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="custom_import_csv" xsi:type="object">Elogic\Storelocator\Console\ImportCSV</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+    <type name="Elogic\Storelocator\Model\StoreListRepository">
+        <plugin name="UrlRewriteCreator"
+                type="Elogic\Storelocator\Plugin\UrlRewriteCreator"/>
+        <plugin name="UrlRewriteCleaner"
+                type="Elogic\Storelocator\Plugin\UrlRewriteCleaner"/>
+    </type>
+</config>
+

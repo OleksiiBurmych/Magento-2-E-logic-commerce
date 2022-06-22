@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Elogic::top_level" module="Elogic_Storelocator" resource="Magento_Backend::admin" sortOrder="9999" title="Elogic_StoreLocator"/>
+        <add action="elogic_storelocator/storelist/index" id="Elogic_Storelocator::elogic_storelocator_store_list" module="Elogic_Storelocator" parent="Elogic::top_level" resource="Magento_Backend::admin" sortOrder="9999" title="Store List"/>
+    </menu>
+</config>
